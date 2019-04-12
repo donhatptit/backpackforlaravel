@@ -28,7 +28,11 @@ class Post extends Model
         return $this->belongsTo('App\Subject', 'subject_id', 'id');
     }
     public function getSlugWithLink() {
-        return '<a href="" target="_blank">'.$this->name.'</a>';
+            $id = $this->id;
+            $url = route('post.manager', ['id' => $id]);
+
+//        $link = "client/detail/$this->id";
+        return "<a href='$url' target='_blank'>$this->name</a>";
     }
     /*
     |--------------------------------------------------------------------------

@@ -14,5 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('client/detail/{id}', 'Client\DetailController@index')->name('post.manager');
 
 

@@ -17,6 +17,7 @@ use Backpack\CRUD\CrudPanel;
  */
 class PostCrudController extends CrudController
 {
+
     public function setup()
     {
         /*
@@ -32,7 +33,7 @@ class PostCrudController extends CrudController
             'label' => "Tiêu đề bài viết", // Table column heading
             'type' => "model_function",
             'function_name' => 'getSlugWithLink', // the method in your Model
-            // 'limit' => 100, // Limit the number of characters shown
+            'limit' => 120,
         ]);
         $this->crud->addColumn([
             'name' => 'content',
@@ -67,7 +68,6 @@ class PostCrudController extends CrudController
             'attribute' => "name_subject", // foreign key attribute that is shown to user
             'model' => "App\Models\Subject",
         ]);
-
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration

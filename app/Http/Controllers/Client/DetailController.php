@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Subject;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,10 @@ class DetailController extends Controller
      */
     public function index($id)
     {
-        return view('client.detail');
+        $post = Post::where('id', $id)->first();
+        $subject_id = $post->subject_id;
+        $subject = Subject::where('id', $subject_id)->first();
+        return view('client.detail', ['post' => $post, 'subject_id' => $subject_id, 'subject'=>$subject]);
     }
 
     /**
